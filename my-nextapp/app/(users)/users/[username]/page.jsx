@@ -1,6 +1,10 @@
-const SingleProfile = async (props) => {
+'use client'
 
-    const data = await props.params
+import { use } from "react"
+
+const SingleProfile = (props) => {
+
+  const data = use(props.params)
 
   return (
     <div>

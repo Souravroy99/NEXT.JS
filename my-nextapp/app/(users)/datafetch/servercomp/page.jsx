@@ -1,29 +1,32 @@
+import { Suspense } from "react";
+import DataCard from "./dataCard";
+import Loader from "./loader";
+
 const DataFetchServer = async (props) => {
 
-  // Halting the page for 3 sec
-  await new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve()
-    }, 3000);
-  })
 
-    const searchParams = await props.searchParams ;
-    const { queryname } = searchParams 
+  const searchParams = await props.searchParams;
+  const { queryname } = searchParams
 
-    const res = await fetch(`https://api.genderize.io/?name=${queryname}`)
-    const {name, gender, probability} = await res.json() ;
 
   return (
-      <div className=' text-5xl flex items-center p-4 justify-center m-auto mt-3 w-[20rem] h-[20rem] bg-green-300 '>
-        <div className="rounded-2xl shadow-2xl p-8 w-full">
-            <div className="text-center">
-
-            <h1 className='font-bold text-gray-500 mb-4'>{name}</h1>
-            <p className="text-gray-600">{gender}</p>
-            <div>{probability * 100}</div>
-            </div>
+    <>
+      <div className="grid grid-cols-2 h-full">
+        <div className="flex items-center h-full justify-center">
+          <h1>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, necessitatibus. Quaerat magni doloremque nisi repudiandae consequatur accusamus voluptate repellat adipisci? Libero animi maxime corrupti nulla, ullam suscipit ab nam ex!
+          </h1>
         </div>
+
+
+        <Suspense fallback={<Loader/>}>
+
+          <DataCard queryname={queryname} />
+
+        </Suspense>
+
       </div>
+    </>
   )
 }
 

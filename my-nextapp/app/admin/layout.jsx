@@ -2,10 +2,12 @@ import Navbar from "@/components/Navbar";
 
 export default function RootLayout({children}) {
     return (
-        <html>
+        <html lang="en">
             <body>
-                <Navbar />
-                {children}
+                <>
+                    <Navbar />
+                    {children}
+                </>
             </body>
         </html>
     )

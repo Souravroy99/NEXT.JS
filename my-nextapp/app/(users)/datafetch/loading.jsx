@@ -1,18 +1,13 @@
-import Image from 'next/image'
-import React from 'react'
+const Loader = () => {
+  return (
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="flex space-x-6">
+        <span className="h-8 w-8 bg-blue-600 rounded-full animate-bounce [animation-delay:-0.3s]"></span>
+        <span className="h-8 w-8 bg-blue-600 rounded-full animate-bounce [animation-delay:-0.15s]"></span>
+        <span className="h-8 w-8 bg-blue-600 rounded-full animate-bounce"></span>
+      </div>
+    </div>
+  );
+};
 
-const loading = () => {
-    return (
-        <div className=''>
-            <h1>Loading</h1>
-            <Image
-                src="/file.svg"
-                width={200}
-                height={200}
-                alt="Loading animation"
-            />
-        </div>
-    )
-}
-
-export default loading
+export default Loader;

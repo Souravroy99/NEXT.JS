@@ -1,6 +1,7 @@
 'use server'
 
 import { db } from "@/config/db"
+import { redirect } from "next/navigation"
 
 const contactFormAction = async (formdata) => {
     /*
@@ -16,6 +17,7 @@ const contactFormAction = async (formdata) => {
     `INSERT INTO student(id, name, roll) values(?, ?, ?)`, [id, name, roll]
    )
 
+   redirect('/')
 }
 
 export default contactFormAction

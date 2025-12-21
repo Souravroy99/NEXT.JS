@@ -2,7 +2,7 @@ import { db } from "@/config/db";
 import { notFound } from "next/navigation";
 
 
-export async function generateStaticParams() {
+export async function generateStaticParams(){
     const [students] = await db.execute(`SELECT id FROM Student`)
     return students.map((student) => ({id: student.id.toString()}))
 }
